@@ -2,8 +2,12 @@
 # path is the relative path to the workflow in the project root
 ---
 path: workflow
-domain: xinranliu.me
+domain: xinranliu
 id: alfred2-date-formatter
+author: xinranliu
+description: to generate time stamp or parse time stamp
+name: date-formatter
+webaddress: xinranliu.me
 # If you are using Alfred's advanced Dropbox sync, indicate the path shown in
 # Alfred Preferences > Advanced > Syncing:
 dropbox: ~/Dropbox/Alfred
