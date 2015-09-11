@@ -1,15 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
 	<string>xinranliu.alfred2-date-formatter</string>
+	<key>connections</key>
+	<dict>
+		<key>AE08D285-BB8F-4C60-9A0F-0BE9D8259464</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>794CA9BA-840E-49B1-8CD6-86EEE7D8FDC6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>xinranliu</string>
 	<key>description</key>
 	<string>to generate time stamp or parse time stamp</string>
+	<key>disabled</key>
+	<false/>
 	<key>name</key>
 	<string>date-formatter</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>794CA9BA-840E-49B1-8CD6-86EEE7D8FDC6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>df</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>woking...</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./date_formatter.rb {query}</string>
+				<key>title</key>
+				<string>Enter timestamp, datetime string, or "now"</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>AE08D285-BB8F-4C60-9A0F-0BE9D8259464</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>uidata</key>
+	<dict>
+		<key>794CA9BA-840E-49B1-8CD6-86EEE7D8FDC6</key>
+		<dict>
+			<key>ypos</key>
+			<real>10</real>
+		</dict>
+		<key>AE08D285-BB8F-4C60-9A0F-0BE9D8259464</key>
+		<dict>
+			<key>ypos</key>
+			<real>90</real>
+		</dict>
+	</dict>
 	<key>webaddress</key>
 	<string>xinranliu.me</string>
 </dict>
