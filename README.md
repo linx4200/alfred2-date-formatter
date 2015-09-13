@@ -9,7 +9,11 @@
 
 `df` : 生成两种形式的时间戳
 
+![生成两种形式的时间戳](https://raw.githubusercontent.com/linx4200/alfred2-date-formatter/master/screenshots/df.png)
+
 `df + 时间戳(10位/13位)` : 解析时间戳对应时间
+
+![解析时间戳对应时间](https://raw.githubusercontent.com/linx4200/alfred2-date-formatter/master/screenshots/df_time.png)
 
 ## Download
 
