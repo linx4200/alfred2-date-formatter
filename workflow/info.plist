@@ -63,7 +63,7 @@
 				<key>script</key>
 				<string>/usr/bin/ruby ./date_formatter.rb {query}</string>
 				<key>title</key>
-				<string>Enter timestamp, datetime string, or "now"</string>
+				<string>get time stamp or parse the time stamp</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>

@@ -24,7 +24,7 @@ end
 
 Alfred.with_friendly_error do |alfred|
   fb = alfred.feedback
-  # puts ARGV.length
+
   if ARGV.length == 0
     now = gen_now_t
     fb.add_item(title: now[:second], subtitle: '10位秒级别时间戳')
