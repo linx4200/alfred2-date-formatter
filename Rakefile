@@ -5,7 +5,10 @@ require 'plist'
 
 config_file = 'config.yml'
 
-workflow_home = File.expand_path('~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows')
+$version = 2;
+def workflow_home()
+  File.expand_path("~/Library/Application Support/Alfred #{$version}/Alfred.alfredpreferences/workflows")
+end
 
 $config = YAML.load_file(config_file)
 $config['bundleid'] = "#{$config['domain']}.#{$config['id']}"
@@ -28,6 +31,12 @@ task :config do
     info['webaddress'] = $config['webaddress'] || ''
     File.open($config['plist'], 'wb') { |file| file.write(info.to_plist) }
   end
+end
+
+task :version do
+  STDOUT.puts "Which is your Alfred version? 2 or 3? "
+  input = STDIN.gets.strip
+  $version = input
 end
 
 task :chdir => [:config] do
@@ -53,8 +62,8 @@ task 'bundle:update' => [:chdir] do
 end
 
 desc 'Install to Alfred'
-task :install => [:config] do
-  ln_sf File.expand_path($config['path']), File.join(workflow_home, $config['bundleid'])
+task :install => [:version, :config] do
+  ln_sf File.expand_path($config['path']), File.join(workflow_home(), $config['bundleid'])
 end
 
 desc 'Unlink from Alfred'
