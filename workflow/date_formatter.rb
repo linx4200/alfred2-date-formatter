@@ -23,13 +23,8 @@ def date_formate(time)
 end
 
 $adv_hash = {'y' => :years, 'm' => :months, 'd' => :days, 'h' => :hours, 'M' => :minutes, 's' => :seconds}
-def set_offset(time, offset_str)
-  if time.class == String
-    offset_str = time
-    time = DateTime.current
-  else
-    time = DateTime.parse(parse_time_stamp(time.to_s).to_s)
-  end
+def set_offset(offset_str, time = DateTime.current)
+  time = DateTime.parse(parse_time_stamp(time.to_s).to_s) if time.class == Fixnum
 
   offset_array = offset_str.scan(/(\d+)([sMhdmy])/).flatten.map.with_index do |x, idx|
     idx.odd? ? $adv_hash[x] : x.to_i
@@ -55,8 +50,15 @@ Alfred.with_friendly_error do |alfred|
     fb.add_item(title: time, subtitle: '解析时间戳')
   end
 
+  if ARGV.length == 2 && ARGV[0] == '+'
+    time = set_offset(/((\d+)[sMhdmy])+/.match(ARGV[1]).to_s)
+    date_formated = date_formate(time)
+    time = gen_timestamp(time)
+    fb.add_item(title: time[:second], subtitle: date_formated)
+  end
+
   if ARGV.length == 3 && ARGV[1] == '+'
-    time = set_offset(ARGV[0].to_i, /((\d+)[sMhdmy])+/.match(ARGV[2]).to_s)
+    time = set_offset(/((\d+)[sMhdmy])+/.match(ARGV[2]).to_s, ARGV[0].to_i)
     date_formated = date_formate(time)
     time = gen_timestamp(time)
     fb.add_item(title: time[:second], subtitle: date_formated)
